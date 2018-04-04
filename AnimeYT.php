@@ -9,16 +9,22 @@ class AnimeYT{
 	* @return last chapter of the anime
 	*/
 
-	public function chapter($anime)
+	public static function lastChapter($anime)
 	{
-		foreach(file("http://www.animeyt.tv/".$anime) as $line)
+		foreach(file("http://www.animeyt.tv/".$anime) as $line){
 			$codeHTML .= htmlspecialchars($line);
 
-		$codeUtil = explode ("http://www.animeyt.tv/ver/".$anime."-", $codeHTML)[1];
+		}
+
+		$codeUtil = explode ("https://www.animeyt.tv/ver/".$anime."-", $codeHTML)[1];
 		return explode ("-", $codeUtil)[0];
 	}
 
 }
+
+/*EXAMPLE*/
+
+echo "18if last chapter => " . AnimeYT::lastChapter('18if');
 
 ?>
 
