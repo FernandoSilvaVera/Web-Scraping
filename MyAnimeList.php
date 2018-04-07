@@ -27,7 +27,7 @@ class AnimeFLV{
 			"chapter"	=> explode ('&', $information[1])[0],
 			"episodes" 	=> explode ('&', $information[2])[0],
 		    "aired"		=> explode ('&', $information[3])[0],
-		    "premiered" => explode ('&', explode ('&gt;', $information[4])[1])[0]
+			"season"	=> explode (' ', explode ('&', explode ('&gt;', $information[4])[1])[0])[0]
 		];
 
 	}
@@ -40,7 +40,7 @@ $bokuNoHero = AnimeFLV::information('33486');
 echo $bokuNoHero['chapter']		. "<br>";
 echo $bokuNoHero['episodes']	. "<br>";
 echo $bokuNoHero['aired']		. "<br>";
-echo $bokuNoHero['premiered']	. "<br>";
+echo $bokuNoHero['season']		. "<br>";
 
 
 ?>
